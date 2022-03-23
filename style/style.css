@@ -21,6 +21,21 @@ header {
   margin: 1em; }
 
 .main-container {
+  padding: 1em;
   margin: 1em; }
 
 /**********Exercises Section ***********/
+.exercises {
+  font-size: 1.5rem; }
+  .exercises #reset-timer {
+    background-color: green; }
+  .exercises #delete-item {
+    background-color: red; }
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; }
+
+/**********Exercise Form **************/

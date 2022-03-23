@@ -50,21 +50,25 @@
             exercises and add new ones!</p>
     </div>
 
-    <div class="main-container exercises">
+    <div class="main-container z-depth-3 exercises">
         <h3 id="your-exercises">Your Exercises</h3>
         <ul class="collapsible" id="exercise-list">
             <li>
-                <div class="collapsible-header"><i class="material-icons">filter_drama</i>
-                    <p>Start with a warm up</p><button>Delete item</button>
-                    <p>
+                <div class="collapsible-header">
+                    <p>Start with a warm up</p>
                     <p>Time : <span id="exercise-time-rendered">10</span>minutes</p>
-                        <label>
-                            <input type="checkbox" id="complete" />
-                            <span>Done</span>
-                        </label>
-                    </p>
+                    <div>
+                        <a class="waves-effect waves-light btn" id="reset-timer">Start/Stop timer</a>
+                        <a class="waves-effect waves-light btn" id="delete-item">Delete</a>
+                    </div>
+                    <label>
+                        <input type="checkbox" id="complete" />
+                        <span>Done</span>
+                    </label>
+
                 </div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                <div class="collapsible-body"><span>A short description or any extra information on the exercise. maybe
+                        add an image too.</span></div>
             </li>
 
             <!-- <li>
@@ -75,14 +79,39 @@
               <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
               <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
             </li> -->
+
         </ul>
-        <a class="waves-effect waves-light btn" id="reset-btn">Delete all</a>
+        <a class="waves-effect waves-dark btn" id="delete-btn">Delete all</a>
+        <a class="waves-effect waves-light btn" id="reset-btn">Reset all</a>
         <div id="timer-container">
             <p>JS stopwatch will go here</p>
         </div>
     </div>
 
-    <div class="main-container exercises-search">
+    <div class="main-container z-depth-3">
+        <h3>Add an exercise</h3>
+        <form id="exercise-form">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" id="exercise-description" class="form-control" placeholder="Describe exercise/ amount of reps etc.">
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="is-timed-checkbox" />
+                    <span>Add a timer?</span>
+                    <input type="text" id="time-input" placeholder="enter a time in minutes">
+                </label>
+            </div>
+
+            <input type="submit" value="Add Exercise" class="waves-effect waves-light btn">
+        </form>
+    </div>
+
+    <div class="main-container z-depth-3 exercises-search">
         <h3 id="exercise-search">Search Exercises</h3>
         <p>Will render the results from https://wger.de/en/software/api exercise search here</p>
     </div>

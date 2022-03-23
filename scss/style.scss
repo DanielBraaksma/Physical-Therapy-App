@@ -37,20 +37,30 @@ header {
 }
 
 .main-container {
-    // max-width: 75%;
+    padding: 1em;
     margin: 1em;
 }
 
 
 /**********Exercises Section ***********/
+.exercises {
+    font-size: 1.5rem;
 
-// .collapsible-header {
-//     display: flex;
-//     justify-content: space-between;
-//     flex-wrap: wrap;
-// }
+    #reset-timer {
+        background-color: green;
+    }
 
-// .exercise-time-rendered {
-//     min-width: 200px;
-// }
+    #delete-item {
+        background-color: red;
+    }
+}
 
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+/**********Exercise Form **************/
