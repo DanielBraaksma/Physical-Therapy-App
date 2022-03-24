@@ -22,7 +22,8 @@ header {
 
 .main-container {
   padding: 1em;
-  margin: 1em; }
+  margin: 2em auto;
+  width: 90%; }
 
 /**********Exercises Section ***********/
 .exercises {

@@ -21,3 +21,27 @@ checkbox.addEventListener('click', () => {
         timeInput.style.display = "block";
       }
 });
+
+/*************PAGE JS *******/
+//Classes//
+
+class Exercise {
+    constructor (title, description, time) {
+        this.title = title;
+        this.description = description;
+        this.time = time;
+    }
+}
+
+class UI {
+    static displayExercises (){
+        let storedExercises = [
+            {title: "calf-stretch",
+            description: "stretch each calf",
+            time: 10,
+            }
+        ];
+
+        const exercises = storedExercises;
+    }
+}
