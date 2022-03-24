@@ -39,3 +39,5 @@ header {
   flex-wrap: wrap; }
 
 /**********Exercise Form **************/
+#time-input {
+  display: none; }
