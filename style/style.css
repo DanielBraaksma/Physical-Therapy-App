@@ -28,9 +28,9 @@ header {
 /**********Exercises Section ***********/
 .exercises {
   font-size: 1.5rem; }
-  .exercises #reset-timer {
+  .exercises .reset-timer {
     background-color: green; }
-  .exercises #delete-item {
+  .exercises .delete-item {
     background-color: red; }
 
 .collapsible-header {
@@ -38,6 +38,12 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; }
+
+#delete-btn {
+  background-color: #910614; }
+
+#reset-btn {
+  background-color: green; }
 
 /**********Exercise Form **************/
 #time-input {

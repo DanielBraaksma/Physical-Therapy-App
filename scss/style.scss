@@ -17,7 +17,7 @@ header {
     background-color: $accentColor;
     margin: 0;
     padding: 1em;
-    
+
     h1 {
         color: #fff;
 
@@ -47,11 +47,11 @@ header {
 .exercises {
     font-size: 1.5rem;
 
-    #reset-timer {
+    .reset-timer {
         background-color: green;
     }
 
-    #delete-item {
+    .delete-item {
         background-color: red;
     }
 }
@@ -61,6 +61,14 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+}
+
+#delete-btn {
+    background-color: #910614;
+}
+
+#reset-btn {
+    background-color: rgb(15, 75, 15)
 }
 
 
