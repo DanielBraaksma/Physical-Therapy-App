@@ -1,12 +1,10 @@
 //Materialize JS//
 
-// import {test} from './api.js'
 
-// test()
+import { timer, displayTimeLeft, startTimer } from './stopwatch.js'
 
-import{log} from './stopwatch.js'
+// timer(90)
 
-log()
 
 M.AutoInit();
 
@@ -38,9 +36,10 @@ const resetAll = document.getElementById("reset-btn")
 
 //IF NO EXERCISES FROM LOCAL STORAGE START OFF WITH 2 SAMPLE ONES//
 let exercises = [
-    {title: "Always start with stretching!",
-    description: "your choice of",
-    time: 10
+    {
+        title: "Always start with stretching!",
+        description: "your choice of",
+        time: 10
     }
 ]
 
@@ -53,9 +52,9 @@ const render = () => {
         <li>
         <div class="collapsible-header">
             <p>${exercise.title}</p>
-            <p>Time : <span id="exercise-time-rendered">${exercise.time}</span>minutes</p>
+            <p>Time : <span class="exercise-time-rendered">${exercise.time}</span>minutes</p>
             <div>
-                <a class="waves-effect waves-light btn reset-timer">Start/Stop timer</a>
+                <a class="waves-effect waves-light btn start-timer">Start Timer</a>
                 <a class="waves-effect waves-light btn delete-item">Delete</a>
             </div>
             <label>
@@ -71,18 +70,19 @@ const render = () => {
     })
     exerciseList.innerHTML = listHtml;
     addDeleteFunction()
+    addStartTimer()
 
 }
 
 
-deleteAll.addEventListener("click", ()=>{
+deleteAll.addEventListener("click", () => {
     exercises = []
     render()
 })
 
-resetAll.addEventListener("click", ()=>{
+resetAll.addEventListener("click", () => {
     let checkboxes = document.querySelectorAll(".complete")
-    checkboxes.forEach(box=>{
+    checkboxes.forEach(box => {
 
         console.log(box)
         box.checked = false;
@@ -137,9 +137,9 @@ function addDeleteFunction() {
         btn.addEventListener("click", (e) => {
             let deleteTitle = e.target.parentElement.parentElement.firstElementChild.textContent
             exercises.forEach((exercise, i) => {
-                if (exercise.title === deleteTitle){
-                // console.log("in second loop")
-                // console.log(exercises)
+                if (exercise.title === deleteTitle) {
+                    // console.log("in second loop")
+                    // console.log(exercises)
                     exercises.splice(i, 1)
                     render()
                 }
@@ -149,3 +149,13 @@ function addDeleteFunction() {
 }
 
 render()
+
+/*************Call to the stopwatch**********/
+
+function addStartTimer() {
+    const resetBtns = document.querySelectorAll(".start-timer")
+    console.log(resetBtns)
+    resetBtns.forEach(button => button.addEventListener('click', startTimer));
+}
+
+// render()
