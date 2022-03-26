@@ -1,7 +1,7 @@
 //Materialize JS//
 
 
-import { timer, displayTimeLeft, startTimer } from './stopwatch.js'
+import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer } from './stopwatch.js'
 
 // timer(90)
 
@@ -77,15 +77,16 @@ const render = () => {
 
 deleteAll.addEventListener("click", () => {
     exercises = []
+    timer(0)
     render()
 })
 
 resetAll.addEventListener("click", () => {
     let checkboxes = document.querySelectorAll(".complete")
     checkboxes.forEach(box => {
-
-        console.log(box)
         box.checked = false;
+        timer(0)
+
     })
 })
 //******** Add a new Exercise *********/
@@ -142,6 +143,7 @@ function addDeleteFunction() {
                     // console.log("in second loop")
                     // console.log(exercises)
                     exercises.splice(i, 1)
+                    timer(0)
                     render()
                 }
             })
@@ -157,9 +159,13 @@ function addStartTimer() {
     const resetBtns = document.querySelectorAll(".start-timer")
     console.log(resetBtns)
     resetBtns.forEach((button, i) => button.addEventListener('click', ()=>{ //Got it working! hadd to retrun function call from anonymous function!
+        event.stopPropagation()
         startTimer(i)
     }));
 }
 
-// render()
+document.getElementById("stop-timer").addEventListener("click", stopTimer)
+document.getElementById("pause-timer").addEventListener("click", pauseTimer)
+
+
 export {exercises}

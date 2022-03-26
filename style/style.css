@@ -50,10 +50,11 @@ header {
   #timer-container #pause-timer {
     background-color: yellow;
     color: #000;
-    width: 125px; }
+    width: 150px;
+    margin-bottom: 2em; }
   #timer-container #stop-timer {
     background-color: red;
-    width: 125px; }
+    width: 150px; }
 
 #stopwatch {
   display: flex;

@@ -1,21 +1,16 @@
 import {exercises} from "./index.js" //need to import data to handle the startTimer call
 
 let countdown;
+// let paused = false;
+// pausedTime =
 const timerDisplay = document.querySelector('.display__time-left');
-// const resetBtns = document.querySelectorAll(".reset-timer")
-
-// function log (){
-//     console.log(timerDisplay)
-// }
-
-// export {log}
-
 
 function timer(seconds) {
     // clear the timer if it is running
     clearInterval(countdown);
 
     const now = Date.now();
+    // if(paused) now = seconds
     const then = now + seconds * 1000;
 
     displayTimeLeft(seconds);
@@ -59,4 +54,19 @@ function startTimer(i) {
 //     this.reset();
 // });
 
-export {timer, displayTimeLeft, startTimer}
+function stopTimer (){
+    timer(0)
+}
+
+function pauseTimer (currentTime){
+    if (!paused){
+    clearInterval(countdown)
+    console.log("hi!")
+    }
+
+    else {
+
+    }
+}
+
+export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer}
