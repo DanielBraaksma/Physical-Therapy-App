@@ -5,6 +5,10 @@ $normalFont: 2rem;
 //     border: 1px solid blue;
 // }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Quicksand', sans-serif;
     border: 0;

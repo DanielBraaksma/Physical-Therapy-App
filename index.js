@@ -120,6 +120,7 @@ form.addEventListener("submit", (e) => {
     description.value = ""
     time.value = ""
     checkbox.checked = false
+    timeInput.style.display = "none"
     render()
 })
 

@@ -3,7 +3,7 @@ import {exercises} from "./index.js" //need to import data to handle the startTi
 let countdown;
 let paused = false;
 let secondsLeft;
-// pausedTime =
+let currentExercise;
 const timerDisplay = document.querySelector('.display__time-left');
 
 function timer(seconds) {
@@ -19,9 +19,13 @@ function timer(seconds) {
 
     countdown = setInterval(() => {
         secondsLeft = Math.round((then - Date.now()) / 1000);
+
         // check if we should stop it!
         if (secondsLeft < 0) {
             clearInterval(countdown);
+            console.log(this)
+            // mark the element checkbox as complete
+            document.querySelectorAll(".complete")[currentExercise].checked = true
             //call an alarm function here
             return;
         }
@@ -42,6 +46,7 @@ function displayTimeLeft(seconds) {
 //use the index we got from the order of the exercise to grab the time value from exercises array =)//
 function startTimer(i) {
     const seconds = parseInt((exercises[i].time) * 60);
+    currentExercise = i;
     timer(seconds)
 }
 
