@@ -85,8 +85,10 @@
         <a class="waves-effect waves-light btn" id="reset-btn">Reset all</a>
         <div id="timer-container">
             <h4>Stopwatch</h4>
-            <div id="stopwatch" class="z-depth-3">
-                00:00:00
+            <div id="stopwatch" class="display z-depth-3">
+                <!-- <div class="display"> -->
+                    <h3 class="display__time-left">00:00</h3>
+                  <!-- </div> -->
             </div>
         </div>
     </div>
@@ -95,12 +97,13 @@
         <h3>Add an exercise</h3>
         <form id="exercise-form">
             <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" id="title" class="form-control">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control">
             </div>
             <div class="form-group">
-              <label for="description">Description</label>
-              <input type="text" id="exercise-description" class="form-control" placeholder="Describe exercise/ amount of reps etc.">
+                <label for="description">Description</label>
+                <input type="text" id="exercise-description" class="form-control"
+                    placeholder="Describe exercise/ amount of reps etc.">
             </div>
             <div class="form-group">
                 <label>

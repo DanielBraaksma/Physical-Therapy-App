@@ -4,6 +4,10 @@
 
 // test()
 
+import{log} from './stopwatch.js'
+
+log()
+
 M.AutoInit();
 
 
