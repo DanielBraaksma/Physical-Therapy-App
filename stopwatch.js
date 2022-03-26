@@ -1,7 +1,8 @@
 import {exercises} from "./index.js" //need to import data to handle the startTimer call
 
 let countdown;
-// let paused = false;
+let paused = false;
+let secondsLeft;
 // pausedTime =
 const timerDisplay = document.querySelector('.display__time-left');
 
@@ -10,14 +11,14 @@ function timer(seconds) {
     clearInterval(countdown);
 
     const now = Date.now();
-    // if(paused) now = seconds
+    // if(paused) seconds =
     const then = now + seconds * 1000;
 
     displayTimeLeft(seconds);
 
 
     countdown = setInterval(() => {
-        const secondsLeft = Math.round((then - Date.now()) / 1000);
+        secondsLeft = Math.round((then - Date.now()) / 1000);
         // check if we should stop it!
         if (secondsLeft < 0) {
             clearInterval(countdown);
@@ -58,15 +59,19 @@ function stopTimer (){
     timer(0)
 }
 
+// Use the boolean paused to determine whether to clear/reset the interval.
 function pauseTimer (currentTime){
     if (!paused){
     clearInterval(countdown)
     console.log("hi!")
+    paused = true;
     }
 
     else {
-
+        timer(secondsLeft)
+        paused = false;
     }
+
 }
 
 export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer}
