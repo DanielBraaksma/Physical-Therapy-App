@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth; }
+
 body {
   font-family: 'Quicksand', sans-serif;
   border: 0;
@@ -42,8 +45,19 @@ header {
 #reset-btn {
   background-color: #0f4b0f; }
 
-#timer-container h4 {
-  text-align: center; }
+#timer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #timer-container #pause-timer {
+    background-color: yellow;
+    color: #000;
+    width: 150px;
+    margin-bottom: 2em; }
+  #timer-container #stop-timer {
+    background-color: red;
+    width: 150px; }
 
 #stopwatch {
   display: flex;

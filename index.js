@@ -1,8 +1,10 @@
 //Materialize JS//
 
-// import {test} from './api.js'
 
-// test()
+import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer } from './stopwatch.js'
+
+// timer(90)
+
 
 M.AutoInit();
 
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const checkbox = document.getElementById('is-timed-checkbox');
 const timeInput = document.getElementById("time-input")
 
-checkbox.addEventListener('click', () => {
+checkbox.addEventListener('change', () => {
     if (checkbox.checked === false) {
         timeInput.style.display = "none";
     } else {
@@ -34,9 +36,10 @@ const resetAll = document.getElementById("reset-btn")
 
 //IF NO EXERCISES FROM LOCAL STORAGE START OFF WITH 2 SAMPLE ONES//
 let exercises = [
-    {title: "Always start with stretching!",
-    description: "your choice of",
-    time: 10
+    {
+        title: "Always start with stretching!",
+        description: "your choice of",
+        time: 10
     }
 ]
 
@@ -49,9 +52,9 @@ const render = () => {
         <li>
         <div class="collapsible-header">
             <p>${exercise.title}</p>
-            <p>Time : <span id="exercise-time-rendered">${exercise.time}</span>minutes</p>
+            <p>Time : <span class="exercise-time-rendered">${exercise.time}</span>minutes</p>
             <div>
-                <a class="waves-effect waves-light btn reset-timer">Start/Stop timer</a>
+                <a class="waves-effect waves-light btn start-timer">Start Timer</a>
                 <a class="waves-effect waves-light btn delete-item">Delete</a>
             </div>
             <label>
@@ -67,21 +70,23 @@ const render = () => {
     })
     exerciseList.innerHTML = listHtml;
     addDeleteFunction()
+    addStartTimer()
 
 }
 
 
-deleteAll.addEventListener("click", ()=>{
+deleteAll.addEventListener("click", () => {
     exercises = []
+    timer(0)
     render()
 })
 
-resetAll.addEventListener("click", ()=>{
+resetAll.addEventListener("click", () => {
     let checkboxes = document.querySelectorAll(".complete")
-    checkboxes.forEach(box=>{
-
-        console.log(box)
+    checkboxes.forEach(box => {
         box.checked = false;
+        timer(0)
+
     })
 })
 //******** Add a new Exercise *********/
@@ -114,6 +119,8 @@ form.addEventListener("submit", (e) => {
     title.value = ""
     description.value = ""
     time.value = ""
+    checkbox.checked = false
+    timeInput.style.display = "none"
     render()
 })
 
@@ -133,10 +140,11 @@ function addDeleteFunction() {
         btn.addEventListener("click", (e) => {
             let deleteTitle = e.target.parentElement.parentElement.firstElementChild.textContent
             exercises.forEach((exercise, i) => {
-                if (exercise.title === deleteTitle){
-                // console.log("in second loop")
-                // console.log(exercises)
+                if (exercise.title === deleteTitle) {
+                    // console.log("in second loop")
+                    // console.log(exercises)
                     exercises.splice(i, 1)
+                    timer(0)
                     render()
                 }
             })
@@ -145,3 +153,20 @@ function addDeleteFunction() {
 }
 
 render()
+
+/*************Call to the stopwatch**********/
+
+function addStartTimer() {
+    const resetBtns = document.querySelectorAll(".start-timer")
+    console.log(resetBtns)
+    resetBtns.forEach((button, i) => button.addEventListener('click', ()=>{ //Got it working! hadd to retrun function call from anonymous function!
+        event.stopPropagation()
+        startTimer(i)
+    }));
+}
+
+document.getElementById("stop-timer").addEventListener("click", stopTimer)
+document.getElementById("pause-timer").addEventListener("click", pauseTimer)
+
+
+export {exercises}
