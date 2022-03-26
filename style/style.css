@@ -16,10 +16,7 @@ header {
   header li a {
     font-size: 1.25rem; }
 
-.info {
-  max-width: 75%;
-  margin: 1em; }
-
+.info,
 .main-container {
   padding: 1em;
   margin: 2em auto;
@@ -43,8 +40,28 @@ header {
   background-color: #910614; }
 
 #reset-btn {
-  background-color: green; }
+  background-color: #0f4b0f; }
+
+#timer-container h4 {
+  text-align: center; }
+
+#stopwatch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+  border: 10px solid grey;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: #4c4cb3;
+  color: #ffff; }
 
 /**********Exercise Form **************/
 #time-input {
   display: none; }
+
+/************Exercise Search ***********/
+.exercises-search p {
+  max-width: 100%;
+  color: #910614; }
