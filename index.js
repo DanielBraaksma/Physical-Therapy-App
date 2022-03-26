@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const checkbox = document.getElementById('is-timed-checkbox');
 const timeInput = document.getElementById("time-input")
 
-checkbox.addEventListener('click', () => {
+checkbox.addEventListener('change', () => {
     if (checkbox.checked === false) {
         timeInput.style.display = "none";
     } else {
@@ -118,6 +118,7 @@ form.addEventListener("submit", (e) => {
     title.value = ""
     description.value = ""
     time.value = ""
+    checkbox.checked = false
     render()
 })
 

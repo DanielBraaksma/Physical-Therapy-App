@@ -45,8 +45,7 @@ function displayTimeLeft(seconds) {
 
 //use the index we got from the order of the exercise to grab the time value from exercises array =)//
 function startTimer(i) {
-    const seconds = parseInt(exercises[i].time);
-
+    const seconds = parseInt((exercises[i].time) * 60);
     timer(seconds)
 }
 
