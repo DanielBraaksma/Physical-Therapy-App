@@ -1,5 +1,9 @@
 //Materialize JS//
 
+// import {test} from './api.js'
+
+// test()
+
 M.AutoInit();
 
 
@@ -89,8 +93,6 @@ let description = document.getElementById("exercise-description")
 let time = document.getElementById("time-input")
 let form = document.getElementById("exercise-form")
 
-
-
 class Exercise {
     constructor(title, description, time) {
         this.title = title;
@@ -114,10 +116,6 @@ form.addEventListener("submit", (e) => {
     time.value = ""
     render()
 })
-
-
-
-
 
 /***********Delete an exercise  ************/
 // get all the delete btns
@@ -145,21 +143,5 @@ function addDeleteFunction() {
         })
     })
 }
-
-
-
-
-// let deleteTitle = e.target.parentElement.parentElement.firstElementChild.textContent
-// console.log("in first loop")
-// // console.log(deleteTitle)
-// exercises.forEach((exercise)=>{
-//     // if (exercise.title === deleteTitle){
-//     console.log("in second loop")
-//     //     exercises.splice(i, 1)
-//     // }
-
-
-// })
-
 
 render()
