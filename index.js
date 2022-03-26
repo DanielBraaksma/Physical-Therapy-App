@@ -155,7 +155,10 @@ render()
 function addStartTimer() {
     const resetBtns = document.querySelectorAll(".start-timer")
     console.log(resetBtns)
-    resetBtns.forEach(button => button.addEventListener('click', startTimer));
+    resetBtns.forEach((button, i) => button.addEventListener('click', ()=>{ //Got it working! hadd to retrun function call from anonymous function!
+        startTimer(i)
+    }));
 }
 
 // render()
+export {exercises}

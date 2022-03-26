@@ -1,3 +1,5 @@
+import {exercises} from "./index.js" //need to import data to handle the startTimer call
+
 let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 // const resetBtns = document.querySelectorAll(".reset-timer")
@@ -41,11 +43,11 @@ function displayTimeLeft(seconds) {
     timerDisplay.textContent = display;
 }
 
+//use the index we got from the order of the exercise to grab the time value from exercises array =)//
+function startTimer(i) {
+    const seconds = parseInt(exercises[i].time);
 
-function startTimer(e) {
-    // const seconds = parseInt(this.dataset.time);
-    // timer(200);
-    console.log(e.target.sibling.textContent)
+    timer(seconds)
 }
 
 
