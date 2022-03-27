@@ -61,8 +61,18 @@ function renderSearchResults () {
 
 function addToExercises(array) {
     let searchResultBtns = document.querySelectorAll(".add-search-exercise")
-    searchResultBtns.forEach(btn =>{
-        btn.addEventListener("click", ()=>console.log("btn clicked!"))
+    searchResultBtns.forEach((btn, i) =>{
+        btn.addEventListener("click", ()=>{
+            copyToClipboard(i)
+        }) // will call this function from index.js
     })
 
+}
+
+function copyToClipboard (i){
+    document.getElementById("title").value = searchResults[i].value
+    if(searchResults[i].data.image){
+    document.getElementById("exercise-description").value = searchResults[i].data.image
+    }
+    console.log("copied")
 }
