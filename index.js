@@ -1,10 +1,10 @@
-//Materialize JS//
+
 
 
 import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer } from './stopwatch.js'
+import './api.js'
 
-// timer(90)
-
+/*********Materialize JS************/
 
 M.AutoInit();
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-//display time input funciton//
+/***********display time input funciton***********/
 
 const checkbox = document.getElementById('is-timed-checkbox');
 const timeInput = document.getElementById("time-input")
@@ -104,9 +104,6 @@ class Exercise {
         this.description = description;
         this.time = time;
     }
-
-    //add a start/stop timer button here
-
 }
 
 // listen for the form submit
@@ -154,7 +151,7 @@ function addDeleteFunction() {
 
 render()
 
-/*************Call to the stopwatch**********/
+/*************Calls to the stopwatch**********/
 
 function addStartTimer() {
     const resetBtns = document.querySelectorAll(".start-timer")
@@ -167,6 +164,8 @@ function addStartTimer() {
 
 document.getElementById("stop-timer").addEventListener("click", stopTimer)
 document.getElementById("pause-timer").addEventListener("click", pauseTimer)
+
+/***********API calls ************/
 
 
 export {exercises}

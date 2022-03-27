@@ -5,6 +5,7 @@ let paused = false;
 let secondsLeft;
 let currentExercise;
 const timerDisplay = document.querySelector('.display__time-left');
+console.log(paused)
 
 function timer(seconds) {
     // clear the timer if it is running
@@ -49,16 +50,6 @@ function startTimer(i) {
     currentExercise = i;
     timer(seconds)
 }
-
-
-// resetBtns.forEach(button => button.addEventListener('click', startTimer));
-// document.customForm.addEventListener('submit', function (e) {
-//     e.preventDefault();
-//     const mins = this.minutes.value;
-//     console.log(mins);
-//     timer(mins * 60);
-//     this.reset();
-// });
 
 function stopTimer (){
     timer(0)
