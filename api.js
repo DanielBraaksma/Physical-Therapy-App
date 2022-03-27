@@ -36,6 +36,7 @@ form.addEventListener('submit', async function (e) {
 
 function renderSearchResults () {
     let html = ""
+    let indexArr = []
     // let filteredWithImage = searchResults.filter(exercise =>{
     //     return exercise.data.image
     // })
@@ -46,11 +47,22 @@ function renderSearchResults () {
             <div class="exercise-search-item">
                 <h5>${exercise.value}</h5>
                 <p>${exercise.data.image ? `<img src="https://wger.de${exercise.data.image}">` :
-                `no image, click <a href='https://www.google.com/search?q=${exercise.value}'>here</a> to search`}</p>
+                `no image, click <a target='__blank' href='https://www.google.com/search?q=${exercise.value}'>here</a> to search`}</p>
+                <a href= "#add-your-exercise" class="waves-effect waves-light btn add-search-exercise">Copy to clipboard</a>
             </div>
         `
+        indexArr.push(i)
     })
     exerciseSearchContainer.innerHTML = html;
+    addToExercises(indexArr)
 }
 
 // const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
+
+function addToExercises(array) {
+    let searchResultBtns = document.querySelectorAll(".add-search-exercise")
+    searchResultBtns.forEach(btn =>{
+        btn.addEventListener("click", ()=>console.log("btn clicked!"))
+    })
+
+}
