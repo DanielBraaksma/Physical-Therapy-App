@@ -95,15 +95,15 @@
         </div>
     </div>
 
-    <div class="main-container z-depth-3">
+    <div class="main-container z-depth-3" id="add-your-exercise">
         <h3>Add an exercise</h3>
-        <form id="exercise-form">
+        <form id="exercise-form" action="#your-exercises">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" id="title" class="form-control">
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description">Description/notes</label>
                 <input type="text" id="exercise-description" class="form-control"
                     placeholder="Describe exercise/ amount of reps etc.">
             </div>
@@ -121,11 +121,15 @@
 
     <div class="main-container z-depth-3 exercises-search">
         <h3 id="exercise-search">Search Exercises</h3>
-        <!-- <p>Will render the results from https://wger.de/en/software/api -->
+
         <form id="search-form">
             <input type="text" placeholder="search for an exercise" name="query">
-            <button>Search</button>
+            <button class="waves-effect waves-light btn">Search</button>
         </form>
+
+        <div id="exercise-search-container"
+
+        ></div>
     </div>
 
     <!--Import 0ur own js-->

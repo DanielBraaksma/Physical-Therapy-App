@@ -109,7 +109,7 @@ class Exercise {
 // listen for the form submit
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     let newObj = new Exercise(title.value, description.value, time.value)
     exercises.push(newObj)
     console.log(exercises)
@@ -166,6 +166,7 @@ document.getElementById("stop-timer").addEventListener("click", stopTimer)
 document.getElementById("pause-timer").addEventListener("click", pauseTimer)
 
 /***********API calls ************/
+
 
 
 export {exercises}
