@@ -79,3 +79,12 @@ header {
 .exercises-search p {
   max-width: 100%;
   color: #910614; }
+
+#exercise-search-container {
+  display: flex;
+  flex-wrap: wrap; }
+  #exercise-search-container .exercise-search-item {
+    background-color: pink;
+    max-width: 200px; }
+    #exercise-search-container .exercise-search-item img {
+      max-width: 100%; }
