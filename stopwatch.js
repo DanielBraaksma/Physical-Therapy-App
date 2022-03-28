@@ -52,7 +52,8 @@ function startTimer(i) {
 }
 
 function stopTimer (){
-    timer(0)
+    clearInterval(countdown)
+    timerDisplay.textContent = "00:00"
 }
 
 // Use the boolean paused to determine whether to clear/reset the interval.
