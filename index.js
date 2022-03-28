@@ -85,7 +85,7 @@ resetAll.addEventListener("click", () => {
     let checkboxes = document.querySelectorAll(".complete")
     checkboxes.forEach(box => {
         box.checked = false;
-        timer(0)
+        stopTimer()
 
     })
 })
