@@ -1,7 +1,7 @@
 
 
 
-import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer } from './stopwatch.js'
+import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer, disableStopwatchBtns } from './stopwatch.js'
 import './api.js'
 
 /*********Materialize JS************/
@@ -52,7 +52,7 @@ const render = () => {
         <li>
         <div class="collapsible-header">
             <p>${exercise.title}</p>
-            <p>Time : <span class="exercise-time-rendered">${exercise.time}</span>minutes</p>
+            <p>Time : <span class="exercise-time-rendered">${exercise.time}</span> min/mins</p>
             <div>
                 <a class="waves-effect waves-light btn start-timer">Start Timer</a>
                 <a class="waves-effect waves-light btn delete-item">Delete</a>
@@ -63,7 +63,9 @@ const render = () => {
             </label>
 
         </div>
-        <div class="collapsible-body"><span>${exercise.description}</span></div>
+        <div class="collapsible-body"><span>${exercise.description.startsWith('/media') ?
+        `<img src="https://wger.de${exercise.description}">` : `${exercise.description}` }</span>
+        </div>
     </li>
         `
 
@@ -71,6 +73,7 @@ const render = () => {
     exerciseList.innerHTML = listHtml;
     addDeleteFunction()
     addStartTimer()
+    console.log(exercises)
 
 }
 
@@ -79,15 +82,17 @@ deleteAll.addEventListener("click", () => {
     exercises = []
     timer(0)
     render()
+    disableStopwatchBtns()
 })
 
 resetAll.addEventListener("click", () => {
     let checkboxes = document.querySelectorAll(".complete")
     checkboxes.forEach(box => {
         box.checked = false;
-        timer(0)
+        stopTimer()
 
     })
+    disableStopwatchBtns()
 })
 //******** Add a new Exercise *********/
 /* instantiate a new obj of exerecise class
@@ -109,7 +114,7 @@ class Exercise {
 // listen for the form submit
 
 form.addEventListener("submit", (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     let newObj = new Exercise(title.value, description.value, time.value)
     exercises.push(newObj)
     console.log(exercises)
@@ -119,6 +124,7 @@ form.addEventListener("submit", (e) => {
     checkbox.checked = false
     timeInput.style.display = "none"
     render()
+    window.location.href="#your-exercises";
 })
 
 /***********Delete an exercise  ************/
@@ -162,7 +168,9 @@ function addStartTimer() {
     }));
 }
 
+document.getElementById("stop-timer").disabled = true;
 document.getElementById("stop-timer").addEventListener("click", stopTimer)
+document.getElementById("pause-timer").disabled = true;
 document.getElementById("pause-timer").addEventListener("click", pauseTimer)
 
 /***********API calls ************/

@@ -5,6 +5,8 @@ let paused = false;
 let secondsLeft;
 let currentExercise;
 const timerDisplay = document.querySelector('.display__time-left');
+const alarm = new Audio ('https://www.pacdv.com/sounds/domestic_sound_effects/alarm_clock_2.wav');
+
 console.log(paused)
 
 function timer(seconds) {
@@ -24,10 +26,11 @@ function timer(seconds) {
         // check if we should stop it!
         if (secondsLeft < 0) {
             clearInterval(countdown);
-            console.log(this)
+            document.getElementById("pause-timer").disabled = true;
             // mark the element checkbox as complete
             document.querySelectorAll(".complete")[currentExercise].checked = true
             //call an alarm function here
+            alarm.play()
             return;
         }
         // display it
@@ -48,11 +51,17 @@ function displayTimeLeft(seconds) {
 function startTimer(i) {
     const seconds = parseInt((exercises[i].time) * 60);
     currentExercise = i;
+    // document.getElementById("pause-timer").style.display = "block"
+    document.getElementById("pause-timer").disabled = false;
+    document.getElementById("stop-timer").disabled = false;
     timer(seconds)
 }
 
 function stopTimer (){
-    timer(0)
+    clearInterval(countdown)
+    alarm.pause()
+    timerDisplay.textContent = "00:00"
+    disableStopwatchBtns()
 }
 
 // Use the boolean paused to determine whether to clear/reset the interval.
@@ -67,7 +76,11 @@ function pauseTimer (currentTime){
         timer(secondsLeft)
         paused = false;
     }
-
 }
 
-export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer}
+function disableStopwatchBtns (){
+    document.getElementById("pause-timer").disabled = true;
+    document.getElementById("stop-timer").disabled = true;
+}
+
+export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer, disableStopwatchBtns}
