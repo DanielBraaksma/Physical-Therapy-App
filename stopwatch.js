@@ -29,6 +29,7 @@ function timer(seconds) {
             console.log(this)
             // mark the element checkbox as complete
             document.querySelectorAll(".complete")[currentExercise].checked = true
+            hidePauseTimer()
             //call an alarm function here
             alarm.play()
             return;
@@ -51,6 +52,7 @@ function displayTimeLeft(seconds) {
 function startTimer(i) {
     const seconds = parseInt((exercises[i].time) * 60);
     currentExercise = i;
+    document.getElementById("pause-timer").style.display = "block"
     timer(seconds)
 }
 
@@ -58,6 +60,7 @@ function stopTimer (){
     clearInterval(countdown)
     alarm.pause()
     timerDisplay.textContent = "00:00"
+    hidePauseTimer()
 }
 
 // Use the boolean paused to determine whether to clear/reset the interval.
@@ -72,6 +75,10 @@ function pauseTimer (currentTime){
         timer(secondsLeft)
         paused = false;
     }
+}
+
+function hidePauseTimer () {
+    document.getElementById("pause-timer").style.display = "none"
 }
 
 export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer}

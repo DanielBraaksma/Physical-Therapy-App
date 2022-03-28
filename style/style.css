@@ -54,7 +54,8 @@ header {
     background-color: yellow;
     color: #000;
     width: 150px;
-    margin-bottom: 2em; }
+    margin-bottom: 2em;
+    display: none; }
   #timer-container #stop-timer {
     background-color: red;
     width: 150px; }
