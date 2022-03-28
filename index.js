@@ -1,7 +1,7 @@
 
 
 
-import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer } from './stopwatch.js'
+import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer, disableStopwatchBtns } from './stopwatch.js'
 import './api.js'
 
 /*********Materialize JS************/
@@ -79,6 +79,7 @@ deleteAll.addEventListener("click", () => {
     exercises = []
     timer(0)
     render()
+    disableStopwatchBtns()
 })
 
 resetAll.addEventListener("click", () => {
@@ -88,6 +89,7 @@ resetAll.addEventListener("click", () => {
         stopTimer()
 
     })
+    disableStopwatchBtns()
 })
 //******** Add a new Exercise *********/
 /* instantiate a new obj of exerecise class
@@ -163,7 +165,9 @@ function addStartTimer() {
     }));
 }
 
+document.getElementById("stop-timer").disabled = true;
 document.getElementById("stop-timer").addEventListener("click", stopTimer)
+document.getElementById("pause-timer").disabled = true;
 document.getElementById("pause-timer").addEventListener("click", pauseTimer)
 
 /***********API calls ************/

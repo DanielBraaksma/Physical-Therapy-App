@@ -51,7 +51,9 @@ function displayTimeLeft(seconds) {
 function startTimer(i) {
     const seconds = parseInt((exercises[i].time) * 60);
     currentExercise = i;
-    document.getElementById("pause-timer").style.display = "block"
+    // document.getElementById("pause-timer").style.display = "block"
+    document.getElementById("pause-timer").disabled = false;
+    document.getElementById("stop-timer").disabled = false;
     timer(seconds)
 }
 
@@ -59,6 +61,7 @@ function stopTimer (){
     clearInterval(countdown)
     alarm.pause()
     timerDisplay.textContent = "00:00"
+    disableStopwatchBtns()
 }
 
 // Use the boolean paused to determine whether to clear/reset the interval.
@@ -75,4 +78,9 @@ function pauseTimer (currentTime){
     }
 }
 
-export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer}
+function disableStopwatchBtns (){
+    document.getElementById("pause-timer").disabled = true;
+    document.getElementById("stop-timer").disabled = true;
+}
+
+export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer, disableStopwatchBtns}
