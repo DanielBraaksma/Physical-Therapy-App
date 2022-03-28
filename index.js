@@ -63,7 +63,9 @@ const render = () => {
             </label>
 
         </div>
-        <div class="collapsible-body"><span>${exercise.description}</span></div>
+        <div class="collapsible-body"><span>${exercise.description.startsWith('/media') ?
+        `<img src="https://wger.de${exercise.description}">` : `${exercise.description}` }</span>
+        </div>
     </li>
         `
 
@@ -71,6 +73,7 @@ const render = () => {
     exerciseList.innerHTML = listHtml;
     addDeleteFunction()
     addStartTimer()
+    console.log(exercises)
 
 }
 

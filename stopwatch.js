@@ -26,7 +26,7 @@ function timer(seconds) {
         // check if we should stop it!
         if (secondsLeft < 0) {
             clearInterval(countdown);
-            console.log(this)
+            document.getElementById("pause-timer").disabled = true;
             // mark the element checkbox as complete
             document.querySelectorAll(".complete")[currentExercise].checked = true
             //call an alarm function here
