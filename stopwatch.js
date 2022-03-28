@@ -5,7 +5,7 @@ let paused = false;
 let secondsLeft;
 let currentExercise;
 const timerDisplay = document.querySelector('.display__time-left');
-const alarm = new Audio ('http://soundbible.com/mp3/service-bell_daniel_simion.mp3');
+const alarm = new Audio ('https://www.pacdv.com/sounds/domestic_sound_effects/alarm_clock_2.wav');
 
 console.log(paused)
 
@@ -56,6 +56,7 @@ function startTimer(i) {
 
 function stopTimer (){
     clearInterval(countdown)
+    alarm.pause()
     timerDisplay.textContent = "00:00"
 }
 
@@ -71,7 +72,6 @@ function pauseTimer (currentTime){
         timer(secondsLeft)
         paused = false;
     }
-
 }
 
 export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer}
