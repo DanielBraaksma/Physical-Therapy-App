@@ -5,6 +5,8 @@ let paused = false;
 let secondsLeft;
 let currentExercise;
 const timerDisplay = document.querySelector('.display__time-left');
+const alarm = new Audio ('http://soundbible.com/mp3/service-bell_daniel_simion.mp3');
+
 console.log(paused)
 
 function timer(seconds) {
@@ -28,6 +30,7 @@ function timer(seconds) {
             // mark the element checkbox as complete
             document.querySelectorAll(".complete")[currentExercise].checked = true
             //call an alarm function here
+            alarm.play()
             return;
         }
         // display it

@@ -52,7 +52,7 @@ const render = () => {
         <li>
         <div class="collapsible-header">
             <p>${exercise.title}</p>
-            <p>Time : <span class="exercise-time-rendered">${exercise.time}</span>minutes</p>
+            <p>Time : <span class="exercise-time-rendered">${exercise.time}</span> min/mins</p>
             <div>
                 <a class="waves-effect waves-light btn start-timer">Start Timer</a>
                 <a class="waves-effect waves-light btn delete-item">Delete</a>
@@ -109,7 +109,7 @@ class Exercise {
 // listen for the form submit
 
 form.addEventListener("submit", (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     let newObj = new Exercise(title.value, description.value, time.value)
     exercises.push(newObj)
     console.log(exercises)
@@ -119,6 +119,7 @@ form.addEventListener("submit", (e) => {
     checkbox.checked = false
     timeInput.style.display = "none"
     render()
+    window.location.href="#your-exercises";
 })
 
 /***********Delete an exercise  ************/
