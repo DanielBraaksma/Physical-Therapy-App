@@ -85,7 +85,7 @@ header {
   flex-wrap: wrap; }
   #exercise-search-container .exercise-search-item {
     background-color: pink;
-    max-width: 250px;
+    width: 250px;
     margin: .5em;
     padding: .5em;
     display: flex;
@@ -94,4 +94,4 @@ header {
     border-radius: 10px; }
     #exercise-search-container .exercise-search-item img {
       max-width: 100%;
-      max-height: fit-content; }
+      max-height: 250px; }

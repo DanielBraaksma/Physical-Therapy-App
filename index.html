@@ -31,8 +31,8 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#your-exercises">Your Exercises</a></li>
                     <li><a href="#exercise-search">Search for Exercises</a></li>
-                    <li><a href="#bmi">Update BMI</a></li>
-                    <li><a href="#next-appt">Your next PT appt</a></li>
+                    <li><a class="modal-trigger" href="#modal1">Next PT appt</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,10 +40,20 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="#your-exercises">Your Exercises</a></li>
             <li><a href="#exercise-search">Search for Exercises</a></li>
-            <li><a href="#bmi">Update BMI</a></li>
-            <li><a href="#next-appt">Your next PT appt</a></li>
+            <li><a class="modal-trigger" href="#modal1">Next PT appt</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </header>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
 
     <div class="info">
         <p>Welcome to your physical therapy session. With this application, you will be able to Stay on track with your
@@ -97,7 +107,8 @@
 
     <div class="main-container z-depth-3" id="add-your-exercise">
         <h3>Add an exercise</h3>
-        <form id="exercise-form"> <!--action="#your-exercises" - causing issues?-->
+        <form id="exercise-form">
+            <!--action="#your-exercises" - causing issues?-->
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" id="title" class="form-control">
@@ -127,9 +138,7 @@
             <button class="waves-effect waves-light btn">Search</button>
         </form>
 
-        <div id="exercise-search-container"
-
-        ></div>
+        <div id="exercise-search-container"></div>
     </div>
 
     <!--Import 0ur own js-->
