@@ -47,13 +47,29 @@
 
     <div id="modal1" class="modal">
         <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+            <h4>Your next PT appointment is:</h4>
+            <p id="pt-date">March 30th at 7pm</p>
         </div>
+
+        <form id="appt-form">
+            <!--action="#your-exercises" - causing issues?-->
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" class="form-control">
+                <label for="time">Time</label>
+                <input type="time" class="form-control">
+                <button class="waves-effect waves-light btn">Add Appt</button>
+            </div>
+
+        </form>
+
+
+
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#!" class="waves-effect waves-ligh btn-flat" id="edit-appt">Edit</a>
+            <a href="#!" class="modal-close btn-flat">Close</a>
         </div>
-      </div>
+    </div>
 
     <div class="info">
         <p>Welcome to your physical therapy session. With this application, you will be able to Stay on track with your
@@ -63,32 +79,6 @@
     <div class="main-container z-depth-3 exercises">
         <h3 id="your-exercises">Your Exercises</h3>
         <ul class="collapsible" id="exercise-list">
-            <!-- <li>
-                <div class="collapsible-header">
-                    <p>Start with a warm up</p>
-                    <p>Time : <span id="exercise-time-rendered">10</span>minutes</p>
-                    <div>
-                        <a class="waves-effect waves-light btn" id="reset-timer">Start/Stop timer</a>
-                        <a class="waves-effect waves-light btn" id="delete-item">Delete</a>
-                    </div>
-                    <label>
-                        <input type="checkbox" id="complete" />
-                        <span>Done</span>
-                    </label>
-
-                </div>
-                <div class="collapsible-body"><span>A short description or any extra information on the exercise. maybe
-                        add an image too.</span></div>
-            </li> -->
-
-            <!-- <li>
-              <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li> -->
 
         </ul>
         <a class="waves-effect waves-dark btn" id="delete-btn">Delete all</a>

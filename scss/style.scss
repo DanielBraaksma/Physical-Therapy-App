@@ -157,3 +157,23 @@ header {
     }
 
 }
+
+/************Modal ***********/
+
+#modal1 {
+    padding: 1em;
+
+    #appt-form {
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: .5em;
+        width: 200px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 250px;
+        }
+    }
+}

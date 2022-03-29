@@ -95,3 +95,17 @@ header {
     #exercise-search-container .exercise-search-item img {
       max-width: 100%;
       max-height: 250px; }
+
+/************Modal ***********/
+#modal1 {
+  padding: 1em; }
+  #modal1 #appt-form {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: .5em;
+    width: 200px; }
+    #modal1 #appt-form .form-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 250px; }

@@ -21,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
     instances[0].open()
   });
 
-// var instance = M.Modal.getInstance(document.querySelectorAll('.modal')[0])
-// // console.log(ptModal)
-
-// ptModal.open();
 
 
 /***********display time input funciton***********/
@@ -186,6 +182,20 @@ document.getElementById("pause-timer").disabled = true;
 document.getElementById("pause-timer").addEventListener("click", pauseTimer)
 
 /***********API calls ************/
+
+
+
+
+
+/***********edit appointment ************/
+let editBtn = document.getElementById("edit-appt")
+let apptIntput = document.getElementById("pt-date")
+editBtn.addEventListener("click", ()=>{
+    
+
+})
+
+
 
 
 
