@@ -18,8 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("loading modal")
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);
+    instances[0].open()
   });
 
+// var instance = M.Modal.getInstance(document.querySelectorAll('.modal')[0])
+// // console.log(ptModal)
+
+// ptModal.open();
 
 
 /***********display time input funciton***********/
