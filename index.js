@@ -1,7 +1,7 @@
 
 
 
-import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer, disableStopwatchBtns } from './stopwatch.js'
+import { timer, displayTimeLeft, startTimer, stopTimer, pauseTimer, disableStopwatchBtns, currentExercise } from './stopwatch.js'
 import './api.js'
 
 /*********Materialize JS************/
@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var instances = M.Sidenav.init(elems);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log("loading modal")
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);
     instances[0].open()
-  });
+});
 
 
 
@@ -60,9 +60,13 @@ const render = () => {
         <li>
         <div class="collapsible-header">
             <p>${exercise.title}</p>
-            <p>Time : <span class="exercise-time-rendered">${exercise.time}</span> min/mins</p>
+
+            ${exercise.time ? `<p>Time : <span class='exercise-time-rendered'>${exercise.time}</span> min/mins</p>` : ""}
+
+
             <div>
-                <a class="waves-effect waves-light btn start-timer">Start Timer</a>
+                <a href="#timer-container" class="waves-effect waves-light btn start-timer" ${exercise.time ? 'style="display:inline-block"'
+                : 'style="display:none"'} >Start Timer</a>
                 <a class="waves-effect waves-light btn delete-item">Delete</a>
             </div>
             <label>
@@ -72,13 +76,14 @@ const render = () => {
 
         </div>
         <div class="collapsible-body"><span>${exercise.description.startsWith('/media') ?
-        `<img src="https://wger.de${exercise.description}">` : `${exercise.description}` }</span>
+                `<img src="https://wger.de${exercise.description}">` : `${exercise.description}`}</span>
         </div>
     </li>
         `
 
     })
     exerciseList.innerHTML = listHtml;
+
     addDeleteFunction()
     addStartTimer()
     console.log(exercises)
@@ -132,7 +137,7 @@ form.addEventListener("submit", (e) => {
     checkbox.checked = false
     timeInput.style.display = "none"
     render()
-    window.location.href="#your-exercises";
+    window.location.href = "#your-exercises";
 })
 
 /***********Delete an exercise  ************/
@@ -146,16 +151,14 @@ form.addEventListener("submit", (e) => {
 function addDeleteFunction() {
     let deleteBtns = document.querySelectorAll(".delete-item")
 
-    deleteBtns.forEach((btn) => {
-        // console.log(exercises)
+    deleteBtns.forEach((btn, i) => {
         btn.addEventListener("click", (e) => {
             let deleteTitle = e.target.parentElement.parentElement.firstElementChild.textContent
-            exercises.forEach((exercise, i) => {
+            exercises.forEach((exercise, j) => {
                 if (exercise.title === deleteTitle) {
-                    // console.log("in second loop")
-                    // console.log(exercises)
                     exercises.splice(i, 1)
-                    timer(0)
+                    // stop the timer only if we have deleted the current exercise running it
+                    if (currentExercise === i) stopTimer()
                     render()
                 }
             })
@@ -170,7 +173,7 @@ render()
 function addStartTimer() {
     const resetBtns = document.querySelectorAll(".start-timer")
     console.log(resetBtns)
-    resetBtns.forEach((button, i) => button.addEventListener('click', ()=>{ //Got it working! hadd to retrun function call from anonymous function!
+    resetBtns.forEach((button, i) => button.addEventListener('click', () => { //Got it working! hadd to retrun function call from anonymous function!
         event.stopPropagation()
         startTimer(i)
     }));
@@ -195,8 +198,8 @@ let apptDate = document.getElementById("appt-date-input")
 let apptTime = document.getElementById("appt-time-input")
 let nextAppt = document.getElementById("pt-date")
 
-editBtn.addEventListener("click", ()=>{
-    if (isShown){
+editBtn.addEventListener("click", () => {
+    if (isShown) {
         dateForm.style.display = "none"
         editBtn.textContent = "edit"
         isShown = false;
@@ -208,12 +211,14 @@ editBtn.addEventListener("click", ()=>{
     }
 })
 
-dateForm.addEventListener("submit", ()=>{
+dateForm.addEventListener("submit", () => {
     event.preventDefault()
-    nextAppt.textContent = `${apptDate.value.slice(5)} at ${parseInt(apptTime.value) > 12 ? (parseInt(apptTime.value) -12) + " pm" :
-    apptTime.value + "am"}`
+    nextAppt.textContent = `${apptDate.value.slice(5)} at ${parseInt(apptTime.value) > 12 ? (parseInt(apptTime.value) - 12) + " pm" :
+        apptTime.value + "am"}`
+    dateForm.style.display = "none"
+    editBtn.textContent = "edit"
 })
 
 
 
-export {exercises}
+export { exercises }

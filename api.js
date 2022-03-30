@@ -15,19 +15,25 @@ const exerciseSearchContainer = document.getElementById("exercise-search-contain
 
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const searchTerm = form.elements.query.value;
+    let searchTerm = form.elements.query.value;
     try {
         const res = await fetch(`https://wger.de/api/v2/exercise/search/?term=${searchTerm}`);
         const data = await res.json();
 
+
         searchResults = data.suggestions;
         console.log(searchResults)
-        renderSearchResults();
+        if (!searchResults.length){
+            exerciseSearchContainer.innerHTML = "<h6 id='no-results'>No results found, try searching for a muscle group or body part ex: 'Leg'</h6>"
+        } else{renderSearchResults();}
 
       } catch (e) {
         console.log("ERROR!!!", e);
       }
+      form.elements.query.value = ""
+
     })
+
 
 
 //decide here what to do if the exercise !have image
