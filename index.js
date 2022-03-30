@@ -11,8 +11,16 @@ M.AutoInit();
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
+    var instances = M.Sidenav.init(elems);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("loading modal")
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+    instances[0].open()
+  });
+
 
 
 /***********display time input funciton***********/
@@ -174,6 +182,37 @@ document.getElementById("pause-timer").disabled = true;
 document.getElementById("pause-timer").addEventListener("click", pauseTimer)
 
 /***********API calls ************/
+
+
+
+
+
+/***********edit appointment ************/
+const editBtn = document.getElementById("edit-appt")
+const dateForm = document.getElementById("appt-form")
+let isShown = false;
+let apptDate = document.getElementById("appt-date-input")
+let apptTime = document.getElementById("appt-time-input")
+let nextAppt = document.getElementById("pt-date")
+
+editBtn.addEventListener("click", ()=>{
+    if (isShown){
+        dateForm.style.display = "none"
+        editBtn.textContent = "edit"
+        isShown = false;
+    }
+    else {
+        dateForm.style.display = "block"
+        isShown = true
+        editBtn.textContent = "cancel"
+    }
+})
+
+dateForm.addEventListener("submit", ()=>{
+    event.preventDefault()
+    nextAppt.textContent = `${apptDate.value.slice(5)} at ${parseInt(apptTime.value) > 12 ? (parseInt(apptTime.value) -12) + " pm" :
+    apptTime.value + "am"}`
+})
 
 
 

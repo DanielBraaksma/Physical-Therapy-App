@@ -31,8 +31,8 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#your-exercises">Your Exercises</a></li>
                     <li><a href="#exercise-search">Search for Exercises</a></li>
-                    <li><a href="#bmi">Update BMI</a></li>
-                    <li><a href="#next-appt">Your next PT appt</a></li>
+                    <li><a class="modal-trigger" href="#modal1">Next PT appt</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,10 +40,36 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="#your-exercises">Your Exercises</a></li>
             <li><a href="#exercise-search">Search for Exercises</a></li>
-            <li><a href="#bmi">Update BMI</a></li>
-            <li><a href="#next-appt">Your next PT appt</a></li>
+            <li><a class="modal-trigger" href="#modal1">Next PT appt</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </header>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 class="modal-title">Your next PT appointment is:</h4>
+            <p id="pt-date">March 30th at 7pm</p>
+        </div>
+
+        <form id="appt-form">
+            <!--action="#your-exercises" - causing issues?-->
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input id="appt-date-input" type="date" class="form-control">
+                <label for="time">Time</label>
+                <input id="appt-time-input" type="time" class="form-control">
+                <button class="waves-effect waves-light btn">Update</button>
+            </div>
+
+        </form>
+
+
+
+        <div class="modal-footer">
+            <a href="#!" class="waves-effect waves-ligh btn-flat" id="edit-appt">Edit</a>
+            <a href="#!" class="modal-close btn-flat">Close</a>
+        </div>
+    </div>
 
     <div class="info">
         <p>Welcome to your physical therapy session. With this application, you will be able to Stay on track with your
@@ -53,32 +79,6 @@
     <div class="main-container z-depth-3 exercises">
         <h3 id="your-exercises">Your Exercises</h3>
         <ul class="collapsible" id="exercise-list">
-            <!-- <li>
-                <div class="collapsible-header">
-                    <p>Start with a warm up</p>
-                    <p>Time : <span id="exercise-time-rendered">10</span>minutes</p>
-                    <div>
-                        <a class="waves-effect waves-light btn" id="reset-timer">Start/Stop timer</a>
-                        <a class="waves-effect waves-light btn" id="delete-item">Delete</a>
-                    </div>
-                    <label>
-                        <input type="checkbox" id="complete" />
-                        <span>Done</span>
-                    </label>
-
-                </div>
-                <div class="collapsible-body"><span>A short description or any extra information on the exercise. maybe
-                        add an image too.</span></div>
-            </li> -->
-
-            <!-- <li>
-              <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li> -->
 
         </ul>
         <a class="waves-effect waves-dark btn" id="delete-btn">Delete all</a>
@@ -97,7 +97,8 @@
 
     <div class="main-container z-depth-3" id="add-your-exercise">
         <h3>Add an exercise</h3>
-        <form id="exercise-form"> <!--action="#your-exercises" - causing issues?-->
+        <form id="exercise-form">
+            <!--action="#your-exercises" - causing issues?-->
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" id="title" class="form-control">
@@ -127,9 +128,7 @@
             <button class="waves-effect waves-light btn">Search</button>
         </form>
 
-        <div id="exercise-search-container"
-
-        ></div>
+        <div id="exercise-search-container"></div>
     </div>
 
     <!--Import 0ur own js-->
