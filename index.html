@@ -101,7 +101,7 @@
             <!--action="#your-exercises" - causing issues?-->
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" id="title" class="form-control">
+                <input type="text" id="title" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="description">Description/notes</label>
@@ -112,7 +112,7 @@
                 <label>
                     <input type="checkbox" id="is-timed-checkbox" />
                     <span>Add a timer?</span>
-                    <input type="text" id="time-input" placeholder="enter a time in minutes">
+                    <input type="number" id="time-input" placeholder="enter a time in minutes">
                 </label>
             </div>
             <!-- <a href="#your-exercises"><button class="waves-effect waves-light btn">Add Exercise</button></a> -->
@@ -124,7 +124,7 @@
         <h3 id="exercise-search">Search Exercises</h3>
 
         <form id="search-form">
-            <input type="text" placeholder="search for an exercise" name="query">
+            <input type="text" placeholder="search for an exercise" name="query" required>
             <button class="waves-effect waves-light btn">Search</button>
         </form>
 
