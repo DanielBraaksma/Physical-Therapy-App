@@ -15,10 +15,11 @@ const exerciseSearchContainer = document.getElementById("exercise-search-contain
 
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const searchTerm = form.elements.query.value;
+    let searchTerm = form.elements.query.value;
     try {
         const res = await fetch(`https://wger.de/api/v2/exercise/search/?term=${searchTerm}`);
         const data = await res.json();
+
 
         searchResults = data.suggestions;
         console.log(searchResults)
@@ -29,7 +30,10 @@ form.addEventListener('submit', async function (e) {
       } catch (e) {
         console.log("ERROR!!!", e);
       }
+      form.elements.query.value = ""
+
     })
+
 
 
 //decide here what to do if the exercise !have image

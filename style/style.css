@@ -3,6 +3,7 @@ html {
 
 body {
   font-family: 'Quicksand', sans-serif;
+  margin: 0;
   border: 0;
   padding: 0;
   font-size: 2rem; }
@@ -19,7 +20,14 @@ header {
   header li a {
     font-size: 1.25rem; }
 
-.info,
+.info p:last-child {
+  font-size: 1.2rem;
+  line-height: 1.5; }
+
+.info {
+  padding: 0;
+  margin: 1em; }
+
 .main-container {
   padding: 1em;
   margin: 2em auto;
@@ -28,6 +36,10 @@ header {
 #mobile-demo a {
   font-size: 1.5rem;
   margin-top: 1.5em; }
+
+label {
+  color: #C52233;
+  font-size: 1.25rem; }
 
 /**********Exercises Section ***********/
 .exercises {
@@ -39,21 +51,27 @@ header {
 
 .collapsible-header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
   flex-wrap: wrap; }
+  .collapsible-header label {
+    margin: 2em 0; }
 
 .collapsible-body img {
   max-width: 200px;
   max-height: 300px; }
 
 #delete-btn {
-  background-color: #910614; }
+  background-color: #910614;
+  margin: 2em 0; }
 
 #reset-btn {
-  background-color: #0f4b0f; }
+  background-color: #0f4b0f;
+  margin: 2em 0; }
 
 #timer-container {
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,3 +147,30 @@ header {
       #modal1 #appt-form .form-group input {
         max-width: 100%;
         margin-bottom: 1em; }
+
+/************Footer ***********/
+.page-footer {
+  max-width: 100%; }
+
+.footer-info {
+  font-size: 1.2rem;
+  line-height: 1.5; }
+
+.contact-method {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: teal;
+  max-width: 100%;
+  min-width: fit-content;
+  display: block;
+  background-color: #fff;
+  padding: .5em;
+  margin: .25em;
+  margin-left: 0;
+  margin-bottom: 1em;
+  width: fit-content;
+  border-radius: 2em; }
+
+.footer-copyright {
+  text-align: center;
+  font-size: 1rem; }
