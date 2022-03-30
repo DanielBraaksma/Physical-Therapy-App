@@ -189,10 +189,12 @@ document.getElementById("pause-timer").addEventListener("click", pauseTimer)
 
 /***********edit appointment ************/
 let editBtn = document.getElementById("edit-appt")
-let apptIntput = document.getElementById("pt-date")
+let dateForm = document.getElementById("appt-form")
 editBtn.addEventListener("click", ()=>{
-    
-
+    if (dateForm.style.display = "block"){
+        editBtn.textContent = "cancel"
+        // dateForm.style.display = "none"
+    }
 })
 
 

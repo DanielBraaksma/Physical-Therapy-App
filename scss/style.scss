@@ -42,6 +42,10 @@ header {
     width: 90%;
 }
 
+#mobile-demo a {
+    font-size: 1.5rem;
+    margin-top: 1.5em;
+}
 
 /**********Exercises Section ***********/
 .exercises {
@@ -160,20 +164,48 @@ header {
 
 /************Modal ***********/
 
+@media screen and (max-width: 460px){
+
+
+
+}
+
 #modal1 {
-    padding: 1em;
+    padding: .5em;
+    max-width: 450px;
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    #pt-date {
+        color: #C52233;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
 
     #appt-form {
+        display: none;
         border: 1px solid black;
         border-radius: 3px;
         padding: .5em;
         width: 200px;
+        margin-left: 1em;
+
+
 
         .form-group {
             display: flex;
             flex-direction: column;
+
+            flex-wrap: wrap;
             justify-content: space-between;
-            height: 250px;
+
+
+            input {
+                max-width: 100%;
+                margin-bottom: 1em;
+            }
         }
     }
 }
