@@ -67,6 +67,11 @@ header {
     flex-wrap: wrap;
 }
 
+.collapsible-body img{
+    max-width: 200px;
+    max-height: 300px;
+}
+
 #delete-btn {
     background-color: #910614;
 }
