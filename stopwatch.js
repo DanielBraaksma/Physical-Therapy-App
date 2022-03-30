@@ -88,4 +88,4 @@ function disableStopwatchBtns (){
     document.getElementById("stop-timer").disabled = true;
 }
 
-export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer, disableStopwatchBtns}
+export {timer, displayTimeLeft, startTimer, stopTimer, pauseTimer, disableStopwatchBtns, currentExercise}
