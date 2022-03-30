@@ -60,9 +60,13 @@ const render = () => {
         <li>
         <div class="collapsible-header">
             <p>${exercise.title}</p>
-            <p>Time : <span class="exercise-time-rendered">${exercise.time}</span> min/mins</p>
+
+            ${exercise.time ? `<p>Time : <span class='exercise-time-rendered'>${exercise.time}</span> min/mins</p>` : ""}
+
+
             <div>
-                <a class="waves-effect waves-light btn start-timer">Start Timer</a>
+                <a class="waves-effect waves-light btn start-timer" ${exercise.time ? 'style="display:inline-block"'
+                : 'style="display:none"'} >Start Timer</a>
                 <a class="waves-effect waves-light btn delete-item">Delete</a>
             </div>
             <label>
@@ -79,6 +83,7 @@ const render = () => {
 
     })
     exerciseList.innerHTML = listHtml;
+
     addDeleteFunction()
     addStartTimer()
     console.log(exercises)

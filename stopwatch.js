@@ -4,6 +4,7 @@ let countdown;
 let paused = false;
 let secondsLeft;
 let currentExercise;
+const pauseBtn = document.getElementById("pause-timer");
 const timerDisplay = document.querySelector('.display__time-left');
 const alarm = new Audio ('https://www.pacdv.com/sounds/domestic_sound_effects/alarm_clock_2.wav');
 
@@ -26,7 +27,7 @@ function timer(seconds) {
         // check if we should stop it!
         if (secondsLeft < 0) {
             clearInterval(countdown);
-            document.getElementById("pause-timer").disabled = true;
+            pauseBtn.disabled = true;
             // mark the element checkbox as complete
             document.querySelectorAll(".complete")[currentExercise].checked = true
             //call an alarm function here
@@ -51,8 +52,8 @@ function displayTimeLeft(seconds) {
 function startTimer(i) {
     const seconds = parseInt((exercises[i].time) * 60);
     currentExercise = i;
-    // document.getElementById("pause-timer").style.display = "block"
-    document.getElementById("pause-timer").disabled = false;
+    // pauseBtn.style.display = "block"
+    pauseBtn.disabled = false;
     document.getElementById("stop-timer").disabled = false;
     timer(seconds)
 }
@@ -68,18 +69,22 @@ function stopTimer (){
 function pauseTimer (currentTime){
     if (!paused){
     clearInterval(countdown)
+    pauseBtn.style.backgroundColor = "green";
+    pauseBtn.textContent = "Resume"
     console.log("hi!")
     paused = true;
     }
 
     else {
         timer(secondsLeft)
+        pauseBtn.style.backgroundColor = "yellow";
+        pauseBtn.textContent = "Pause"
         paused = false;
     }
 }
 
 function disableStopwatchBtns (){
-    document.getElementById("pause-timer").disabled = true;
+    pauseBtn.disabled = true;
     document.getElementById("stop-timer").disabled = true;
 }
 
