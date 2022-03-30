@@ -188,16 +188,31 @@ document.getElementById("pause-timer").addEventListener("click", pauseTimer)
 
 
 /***********edit appointment ************/
-let editBtn = document.getElementById("edit-appt")
-let dateForm = document.getElementById("appt-form")
+const editBtn = document.getElementById("edit-appt")
+const dateForm = document.getElementById("appt-form")
+let isShown = false;
+let apptDate = document.getElementById("appt-date-input")
+let apptTime = document.getElementById("appt-time-input")
+let nextAppt = document.getElementById("pt-date")
+
 editBtn.addEventListener("click", ()=>{
-    if (dateForm.style.display = "block"){
+    if (isShown){
+        dateForm.style.display = "none"
+        editBtn.textContent = "edit"
+        isShown = false;
+    }
+    else {
+        dateForm.style.display = "block"
+        isShown = true
         editBtn.textContent = "cancel"
-        // dateForm.style.display = "none"
     }
 })
 
-
+dateForm.addEventListener("submit", ()=>{
+    event.preventDefault()
+    nextAppt.textContent = `${apptDate.value.slice(5)} at ${parseInt(apptTime.value) > 12 ? (parseInt(apptTime.value) -12) + " pm" :
+    apptTime.value + "am"}`
+})
 
 
 
