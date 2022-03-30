@@ -53,21 +53,24 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: left;
   flex-wrap: wrap; }
+  .collapsible-header > * {
+    margin: .5em 0; }
   .collapsible-header label {
-    margin: 2em 0; }
+    width: fit-content;
+    margin: 1em 0; }
 
 .collapsible-body img {
   max-width: 200px;
   max-height: 300px; }
 
 #delete-btn {
-  background-color: #910614;
-  margin: 2em 0; }
+  background-color: red;
+  margin: 2em 0;
+  margin-left: 1em; }
 
 #reset-btn {
-  background-color: #0f4b0f;
+  background-color: green;
   margin: 2em 0; }
 
 #timer-container {
@@ -174,3 +177,9 @@ label {
 .footer-copyright {
   text-align: center;
   font-size: 1rem; }
+
+@media screen and (min-width: 900px) {
+  .collapsible-header {
+    display: grid;
+    justify-content: flex-start;
+    grid-template-columns: 400px 200px 150px 50px; } }

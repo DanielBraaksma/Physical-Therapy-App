@@ -65,7 +65,7 @@ const render = () => {
 
 
             <div>
-                <a class="waves-effect waves-light btn start-timer" ${exercise.time ? 'style="display:inline-block"'
+                <a href="#timer-container" class="waves-effect waves-light btn start-timer" ${exercise.time ? 'style="display:inline-block"'
                 : 'style="display:none"'} >Start Timer</a>
                 <a class="waves-effect waves-light btn delete-item">Delete</a>
             </div>
