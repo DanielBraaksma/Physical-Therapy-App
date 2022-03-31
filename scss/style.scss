@@ -67,7 +67,9 @@ label {
     font-size: 1.25rem;
 }
 
-
+h5 {
+    font-size: 2rem;
+}
 /**********Exercises Section ***********/
 .exercises {
     font-size: 1.5rem;
@@ -165,7 +167,7 @@ label {
 .exercises-search {
     p {
         max-width: 100%;
-        color: #910614;
+        color: #d13f3f;
     }
 
     button {
@@ -177,20 +179,28 @@ label {
 #exercise-search-container{
     display: flex;
     flex-wrap: wrap;
+    font-size: 1.5rem;
+    // font-weight: bold;
+    color: rgb(31, 29, 29);
 
     .exercise-search-item {
-        background-color: pink;
+        background: #bbdefb;
         width: 250px;
+        min-height: 300px;
         margin: .5em;
         padding: .5em;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         border-radius: 10px;
+        border: 1px solid grey;
+        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 
         img {
             max-width: 100%;
             max-height: 250px;
+            border-radius: 5px;
+            background-color: #fff;
         }
     }
 
