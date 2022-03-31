@@ -1,12 +1,12 @@
 
 
-function test (){
-    console.log(document.getElementById("your-exercises"))
+// function test (){
+//     console.log(document.getElementById("your-exercises"))
 
-}
+// }
 
 
-export {test}
+// export {test}
 
 
 let searchResults;

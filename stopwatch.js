@@ -29,8 +29,8 @@ function timer(seconds) {
             clearInterval(countdown);
             pauseBtn.disabled = true;
             // mark the element checkbox as complete
-            document.querySelectorAll(".complete")[currentExercise].checked = true
-            //call an alarm function here
+            document.querySelectorAll(".complete")[currentExercise].checked = true;
+            document.querySelectorAll(".collapsible-header")[currentExercise].style.backgroundColor = "lightgreen";
             alarm.play()
             return;
         }

@@ -83,7 +83,7 @@ const render = () => {
 
     })
     exerciseList.innerHTML = listHtml;
-
+    determineComplete()
     addDeleteFunction()
     addStartTimer()
     console.log(exercises)
@@ -100,13 +100,27 @@ deleteAll.addEventListener("click", () => {
 
 resetAll.addEventListener("click", () => {
     let checkboxes = document.querySelectorAll(".complete")
-    checkboxes.forEach(box => {
+    checkboxes.forEach((box, i) => {
         box.checked = false;
+        document.querySelectorAll(".collapsible-header")[i].style.backgroundColor = "white";
         stopTimer()
 
     })
     disableStopwatchBtns()
 })
+
+function determineComplete() {
+    document.querySelectorAll(".complete").forEach((box, i) => {
+        box.addEventListener("change", () => {
+            console.log("box-changed!")
+            if(box.checked){
+            document.querySelectorAll(".collapsible-header")[i].style.backgroundColor = "lightgreen"
+            } else {document.querySelectorAll(".collapsible-header")[i].style.backgroundColor = "white"}
+        })
+    })
+
+}
+
 //******** Add a new Exercise *********/
 /* instantiate a new obj of exerecise class
 push it to exercises array, and then re-render*/
@@ -184,11 +198,6 @@ document.getElementById("stop-timer").addEventListener("click", stopTimer)
 document.getElementById("pause-timer").disabled = true;
 document.getElementById("pause-timer").addEventListener("click", pauseTimer)
 
-/***********API calls ************/
-
-
-
-
 
 /***********edit appointment ************/
 const editBtn = document.getElementById("edit-appt")
@@ -218,7 +227,6 @@ dateForm.addEventListener("submit", () => {
     dateForm.style.display = "none"
     editBtn.textContent = "edit"
 })
-
 
 
 export { exercises }
