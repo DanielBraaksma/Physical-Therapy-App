@@ -22,16 +22,16 @@ header {
 
 .info p:last-child {
   font-size: 1.2rem;
-  line-height: 1.5; }
+  line-height: 2;
+  color: #C52233; }
 
-.info {
-  padding: 0;
-  margin: 1.5em; }
-
+.info,
 .main-container {
-  padding: 1em;
   margin: 2em auto;
   width: 90%; }
+
+.main-container {
+  padding: 1em; }
 
 #mobile-demo a {
   font-size: 1.5rem;
@@ -112,6 +112,10 @@ label {
   max-width: 100%;
   color: #910614; }
 
+.exercises-search button {
+  margin-top: 2em;
+  margin-bottom: 2em; }
+
 #exercise-search-container {
   display: flex;
   flex-wrap: wrap; }
@@ -127,6 +131,10 @@ label {
     #exercise-search-container .exercise-search-item img {
       max-width: 100%;
       max-height: 250px; }
+
+#no-results {
+  margin: 4em auto;
+  font-size: 1.5rem; }
 
 /************Modal ***********/
 #modal1 {
@@ -181,6 +189,17 @@ label {
   font-size: 1rem; }
 
 @media screen and (min-width: 900px) {
+  .info {
+    text-align: center;
+    font-size: 3rem; }
+  .info p:last-child {
+    font-size: 2rem;
+    line-height: 2; }
+  #stop-timer {
+    margin-bottom: 4em; }
+  #add-your-exercise button {
+    margin-top: 4em;
+    margin-bottom: 4em; }
   .collapsible-header {
     display: grid;
     justify-content: space-between;
@@ -188,4 +207,12 @@ label {
     grid-template-columns: 200px 200px 200px 200px; }
     .collapsible-header .delete-item {
       width: 123.5px;
-      margin-top: .5em; } }
+      margin-top: .5em; }
+  input {
+    font-size: 20px !important;
+    color: #3b3737;
+    margin-top: .75em !important;
+    margin-bottom: .75em !important; }
+  #about {
+    font-size: 1.5rem;
+    line-height: 2; } }

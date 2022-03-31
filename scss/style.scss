@@ -38,18 +38,24 @@ header {
 
 .info p:last-child {
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 2;
+    color: $accentColor;
 }
 
-.info {
-    padding: 0;
-    margin: 1.5em;
-}
+.info,
 .main-container {
-    padding: 1em;
     margin: 2em auto;
     width: 90%;
 }
+
+.main-container {
+    padding: 1em;
+}
+
+// .info > * {
+//     margin: 0;
+//     padding: 0;
+// }
 
 #mobile-demo a {
     font-size: 1.5rem;
@@ -61,9 +67,6 @@ label {
     font-size: 1.25rem;
 }
 
-input {
-
-}
 
 /**********Exercises Section ***********/
 .exercises {
@@ -164,6 +167,11 @@ input {
         max-width: 100%;
         color: #910614;
     }
+
+    button {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
 }
 
 #exercise-search-container{
@@ -186,6 +194,13 @@ input {
         }
     }
 
+
+
+}
+
+#no-results {
+    margin: 4em auto;
+    font-size: 1.5rem;
 }
 
 /************Modal ***********/
@@ -232,6 +247,8 @@ input {
     }
 }
 
+
+
 /************Footer ***********/
 
 .page-footer {
@@ -271,6 +288,26 @@ input {
     }
 
     @media screen and (min-width: 900px){
+
+        .info {
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .info p:last-child {
+            font-size: 2rem;
+            line-height: 2;
+        }
+
+        #stop-timer {
+            margin-bottom: 4em;
+        }
+
+        #add-your-exercise button{
+            margin-top: 4em;
+            margin-bottom: 4em;
+        }
+
         .collapsible-header {
             display: grid;
             justify-content: space-between;
@@ -284,5 +321,16 @@ input {
             }
         }
 
+        input {
+            font-size: 20px !important;
+            color: rgb(59, 55, 55);
+            margin-top: .75em !important;
+            margin-bottom: .75em !important;
 
+        }
+
+        #about {
+            font-size: 1.5rem;
+            line-height: 2;
+        }
 }
