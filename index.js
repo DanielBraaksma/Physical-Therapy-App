@@ -43,6 +43,8 @@ const deleteAll = document.getElementById("delete-btn")
 const resetAll = document.getElementById("reset-btn")
 
 //IF NO EXERCISES FROM LOCAL STORAGE START OFF WITH 2 SAMPLE ONES//
+
+
 let exercises = [
     {
         title: "Always start with stretching!",
