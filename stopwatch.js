@@ -63,6 +63,7 @@ function stopTimer (){
     alarm.pause()
     timerDisplay.textContent = "00:00"
     disableStopwatchBtns()
+    window.location.href = "#your-exercises"
 }
 
 // Use the boolean paused to determine whether to clear/reset the interval.

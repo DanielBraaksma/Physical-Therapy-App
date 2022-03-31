@@ -43,7 +43,7 @@ header {
 
 .info {
     padding: 0;
-    margin: 1em;
+    margin: 1.5em;
 }
 .main-container {
     padding: 1em;
@@ -232,6 +232,7 @@ input {
 
 .page-footer {
     max-width: 100%;
+    text-align: center;
 }
 
     .footer-info {
@@ -252,11 +253,12 @@ input {
         display: block;
         background-color: #fff;
         padding: .5em;
-        margin: .25em;
-        margin-left: 0;
-        margin-bottom: 1em;
+        margin: 1em auto;
+        // margin-left: 0;
+        // margin-bottom: 1em;
         width: fit-content;
         border-radius: 2em;
+
     }
 
     .footer-copyright {
@@ -267,9 +269,16 @@ input {
     @media screen and (min-width: 900px){
         .collapsible-header {
             display: grid;
-            justify-content: flex-start;
-            grid-template-columns: 400px 200px 150px 50px;
+            justify-content: space-between;
+            align-items: center;
+            grid-template-columns: 200px 200px 200px 200px;
             // grid-template-rows: 8px auto 12px;
+
+            .delete-item {
+                width: 123.5px;
+                margin-top: .5em;
+            }
         }
+
 
 }

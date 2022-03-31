@@ -137,7 +137,7 @@ form.addEventListener("submit", (e) => {
     checkbox.checked = false
     timeInput.style.display = "none"
     render()
-    window.location.href = "#your-exercises";
+    window.location.href = "#your-exercises"; //uses jS to send to link
 })
 
 /***********Delete an exercise  ************/
