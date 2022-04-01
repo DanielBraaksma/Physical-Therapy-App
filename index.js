@@ -239,10 +239,16 @@ editBtn.addEventListener("click", () => {
     }
 })
 
+let savedDate = JSON.parse(localStorage.getItem("apptDate"))
+
+nextAppt.textContent = `${ savedDate === null ? "04-13 at 7:00pm" : savedDate}`
+
 dateForm.addEventListener("submit", () => {
     event.preventDefault()
-    nextAppt.textContent = `${apptDate.value.slice(5)} at ${parseInt(apptTime.value) > 12 ? (parseInt(apptTime.value) - 12) + " pm" :
-        apptTime.value + "am"}`
+    let newApptText = `${apptDate.value.slice(5)} at ${parseInt(apptTime.value) > 12 ? (parseInt(apptTime.value) - 12) + " pm" :
+    apptTime.value + "am"}`
+    localStorage.setItem("apptDate", JSON.stringify(newApptText));
+    nextAppt.textContent = newApptText
     dateForm.style.display = "none"
     editBtn.textContent = "edit"
 })
