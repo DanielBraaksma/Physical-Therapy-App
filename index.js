@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("loading modal")
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);
     instances[0].open()
@@ -41,21 +40,37 @@ checkbox.addEventListener('change', () => {
 const exerciseList = document.getElementById("exercise-list")
 const deleteAll = document.getElementById("delete-btn")
 const resetAll = document.getElementById("reset-btn")
+let exercises = JSON.parse(localStorage.getItem("myExercises"))
+
 
 //IF NO EXERCISES FROM LOCAL STORAGE START OFF WITH 2 SAMPLE ONES//
 
-
-let exercises = [
-    {
-        title: "Always start with stretching!",
-        description: "your choice of",
-        time: 10
-    }
-]
+if (exercises === null || !exercises.length) {
+    exercises = [
+        {
+            title: "example : Start off with stretching",
+            description: "your choice of calf or hamstring stretch",
+            time: 1,
+        },
+        {
+            title: "example : Mild cycling",
+            description: "keep speed at 10mph",
+            time: 1,
+        },
+        {
+            title: "example : Leg Raises lying",
+            description: "/media/exercise-images/125/Leg-raises-2.png",
+            time: undefined,
+        }
+    ]
+    /// set exercises to local storage
+    localStorage.setItem("myExercises", JSON.stringify(exercises));
+}
 
 
 //*********render exercises to the screen***********//
 const render = () => {
+    // exercises = JSON.parse(localStorage.getItem("myExercises")) //every time we render pull updated from local storage
     let listHtml = ""
     exercises.forEach((exercise) => {
         listHtml += `
@@ -63,7 +78,7 @@ const render = () => {
         <div class="collapsible-header">
             <p>${exercise.title}</p>
 
-            ${exercise.time ? `<p>Time : <span class='exercise-time-rendered'>${exercise.time}</span> min/mins</p>` : ""}
+            ${exercise.time ? `<p>Time : <span class='exercise-time-rendered'>${exercise.time}</span> min/mins</p>` : "<span></span>"}
 
 
             <div>
@@ -95,6 +110,7 @@ const render = () => {
 
 deleteAll.addEventListener("click", () => {
     exercises = []
+    localStorage.removeItem('myExercises');
     timer(0)
     render()
     disableStopwatchBtns()
@@ -115,9 +131,9 @@ function determineComplete() {
     document.querySelectorAll(".complete").forEach((box, i) => {
         box.addEventListener("change", () => {
             console.log("box-changed!")
-            if(box.checked){
-            document.querySelectorAll(".collapsible-header")[i].style.backgroundColor = "lightgreen"
-            } else {document.querySelectorAll(".collapsible-header")[i].style.backgroundColor = "white"}
+            if (box.checked) {
+                document.querySelectorAll(".collapsible-header")[i].style.backgroundColor = "lightgreen"
+            } else { document.querySelectorAll(".collapsible-header")[i].style.backgroundColor = "white" }
         })
     })
 
@@ -146,6 +162,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault()
     let newObj = new Exercise(title.value, description.value, time.value)
     exercises.push(newObj)
+    localStorage.setItem("myExercises", JSON.stringify(exercises));
     console.log(exercises)
     title.value = ""
     description.value = ""
@@ -173,6 +190,7 @@ function addDeleteFunction() {
             exercises.forEach((exercise, j) => {
                 if (exercise.title === deleteTitle) {
                     exercises.splice(i, 1)
+                    localStorage.setItem("myExercises", JSON.stringify(exercises));
                     // stop the timer only if we have deleted the current exercise running it
                     if (currentExercise === i) stopTimer()
                     render()
@@ -188,7 +206,6 @@ render()
 
 function addStartTimer() {
     const resetBtns = document.querySelectorAll(".start-timer")
-    console.log(resetBtns)
     resetBtns.forEach((button, i) => button.addEventListener('click', () => { //Got it working! hadd to retrun function call from anonymous function!
         event.stopPropagation()
         startTimer(i)
@@ -222,10 +239,16 @@ editBtn.addEventListener("click", () => {
     }
 })
 
+let savedDate = JSON.parse(localStorage.getItem("apptDate"))
+
+nextAppt.textContent = `${ savedDate === null ? "04-13 at 7:00pm" : savedDate}`
+
 dateForm.addEventListener("submit", () => {
     event.preventDefault()
-    nextAppt.textContent = `${apptDate.value.slice(5)} at ${parseInt(apptTime.value) > 12 ? (parseInt(apptTime.value) - 12) + " pm" :
-        apptTime.value + "am"}`
+    let newApptText = `${apptDate.value.slice(5)} at ${parseInt(apptTime.value) > 12 ? (parseInt(apptTime.value) - 12) + " pm" :
+    apptTime.value + "am"}`
+    localStorage.setItem("apptDate", JSON.stringify(newApptText));
+    nextAppt.textContent = newApptText
     dateForm.style.display = "none"
     editBtn.textContent = "edit"
 })
