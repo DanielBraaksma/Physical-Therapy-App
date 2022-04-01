@@ -8,8 +8,6 @@ const pauseBtn = document.getElementById("pause-timer");
 const timerDisplay = document.querySelector('.display__time-left');
 const alarm = new Audio ('https://www.pacdv.com/sounds/domestic_sound_effects/alarm_clock_2.wav');
 
-console.log(paused)
-
 function timer(seconds) {
     // clear the timer if it is running
     clearInterval(countdown);
@@ -29,8 +27,8 @@ function timer(seconds) {
             clearInterval(countdown);
             pauseBtn.disabled = true;
             // mark the element checkbox as complete
-            document.querySelectorAll(".complete")[currentExercise].checked = true
-            //call an alarm function here
+            document.querySelectorAll(".complete")[currentExercise].checked = true;
+            document.querySelectorAll(".collapsible-header")[currentExercise].style.backgroundColor = "lightgreen";
             alarm.play()
             return;
         }
@@ -63,6 +61,7 @@ function stopTimer (){
     alarm.pause()
     timerDisplay.textContent = "00:00"
     disableStopwatchBtns()
+    window.location.href = "#your-exercises"
 }
 
 // Use the boolean paused to determine whether to clear/reset the interval.

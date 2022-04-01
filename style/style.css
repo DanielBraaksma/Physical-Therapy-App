@@ -22,16 +22,16 @@ header {
 
 .info p:last-child {
   font-size: 1.2rem;
-  line-height: 1.5; }
+  line-height: 2;
+  color: #C52233; }
 
-.info {
-  padding: 0;
-  margin: 1em; }
-
+.info,
 .main-container {
-  padding: 1em;
   margin: 2em auto;
   width: 90%; }
+
+.main-container {
+  padding: 1em; }
 
 #mobile-demo a {
   font-size: 1.5rem;
@@ -40,6 +40,9 @@ header {
 label {
   color: #C52233;
   font-size: 1.25rem; }
+
+h5 {
+  font-size: 2rem; }
 
 /**********Exercises Section ***********/
 .exercises {
@@ -100,6 +103,9 @@ label {
   background-color: #4c4cb3;
   color: #ffff; }
 
+.complete-toggler {
+  background-color: lightgreen; }
+
 /**********Exercise Form **************/
 #time-input {
   display: none; }
@@ -107,23 +113,38 @@ label {
 /************Exercise Search ***********/
 .exercises-search p {
   max-width: 100%;
-  color: #910614; }
+  color: #d13f3f; }
+
+.exercises-search button {
+  margin-top: 2em;
+  margin-bottom: 2em; }
 
 #exercise-search-container {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+  color: #1f1d1d; }
   #exercise-search-container .exercise-search-item {
-    background-color: pink;
+    background: #bbdefb;
     width: 250px;
+    min-height: 300px;
     margin: .5em;
     padding: .5em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 10px; }
+    border-radius: 10px;
+    border: 1px solid grey;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
     #exercise-search-container .exercise-search-item img {
       max-width: 100%;
-      max-height: 250px; }
+      max-height: 250px;
+      border-radius: 5px;
+      background-color: #fff; }
+
+#no-results {
+  margin: 4em auto;
+  font-size: 1.5rem; }
 
 /************Modal ***********/
 #modal1 {
@@ -153,7 +174,8 @@ label {
 
 /************Footer ***********/
 .page-footer {
-  max-width: 100%; }
+  max-width: 100%;
+  text-align: center; }
 
 .footer-info {
   font-size: 1.2rem;
@@ -168,9 +190,7 @@ label {
   display: block;
   background-color: #fff;
   padding: .5em;
-  margin: .25em;
-  margin-left: 0;
-  margin-bottom: 1em;
+  margin: 1em auto;
   width: fit-content;
   border-radius: 2em; }
 
@@ -179,7 +199,30 @@ label {
   font-size: 1rem; }
 
 @media screen and (min-width: 900px) {
+  .info {
+    text-align: center;
+    font-size: 3rem; }
+  .info p:last-child {
+    font-size: 2rem;
+    line-height: 2; }
+  #stop-timer {
+    margin-bottom: 4em; }
+  #add-your-exercise button {
+    margin-top: 4em;
+    margin-bottom: 4em; }
   .collapsible-header {
     display: grid;
-    justify-content: flex-start;
-    grid-template-columns: 400px 200px 150px 50px; } }
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 200px 200px 200px 200px; }
+    .collapsible-header .delete-item {
+      width: 123.5px;
+      margin-top: .5em; }
+  input {
+    font-size: 20px !important;
+    color: #3b3737;
+    margin-top: .75em !important;
+    margin-bottom: .75em !important; }
+  #about {
+    font-size: 1.5rem;
+    line-height: 2; } }

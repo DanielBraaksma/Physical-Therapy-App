@@ -38,18 +38,24 @@ header {
 
 .info p:last-child {
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 2;
+    color: $accentColor;
 }
 
-.info {
-    padding: 0;
-    margin: 1em;
-}
+.info,
 .main-container {
-    padding: 1em;
     margin: 2em auto;
     width: 90%;
 }
+
+.main-container {
+    padding: 1em;
+}
+
+// .info > * {
+//     margin: 0;
+//     padding: 0;
+// }
 
 #mobile-demo a {
     font-size: 1.5rem;
@@ -61,10 +67,9 @@ label {
     font-size: 1.25rem;
 }
 
-input {
-
+h5 {
+    font-size: 2rem;
 }
-
 /**********Exercises Section ***********/
 .exercises {
     font-size: 1.5rem;
@@ -144,6 +149,10 @@ input {
 
 }
 
+.complete-toggler {
+    background-color: lightgreen;
+}
+
 
 /**********Exercise Form **************/
 
@@ -158,30 +167,50 @@ input {
 .exercises-search {
     p {
         max-width: 100%;
-        color: #910614;
+        color: #d13f3f;
+    }
+
+    button {
+        margin-top: 2em;
+        margin-bottom: 2em;
     }
 }
 
 #exercise-search-container{
     display: flex;
     flex-wrap: wrap;
+    font-size: 1.5rem;
+    // font-weight: bold;
+    color: rgb(31, 29, 29);
 
     .exercise-search-item {
-        background-color: pink;
+        background: #bbdefb;
         width: 250px;
+        min-height: 300px;
         margin: .5em;
         padding: .5em;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         border-radius: 10px;
+        border: 1px solid grey;
+        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 
         img {
             max-width: 100%;
             max-height: 250px;
+            border-radius: 5px;
+            background-color: #fff;
         }
     }
 
+
+
+}
+
+#no-results {
+    margin: 4em auto;
+    font-size: 1.5rem;
 }
 
 /************Modal ***********/
@@ -228,10 +257,13 @@ input {
     }
 }
 
+
+
 /************Footer ***********/
 
 .page-footer {
     max-width: 100%;
+    text-align: center;
 }
 
     .footer-info {
@@ -252,11 +284,12 @@ input {
         display: block;
         background-color: #fff;
         padding: .5em;
-        margin: .25em;
-        margin-left: 0;
-        margin-bottom: 1em;
+        margin: 1em auto;
+        // margin-left: 0;
+        // margin-bottom: 1em;
         width: fit-content;
         border-radius: 2em;
+
     }
 
     .footer-copyright {
@@ -265,11 +298,49 @@ input {
     }
 
     @media screen and (min-width: 900px){
-        .collapsible-header {
-            display: grid;
-            justify-content: flex-start;
-            grid-template-columns: 400px 200px 150px 50px;
-            // grid-template-rows: 8px auto 12px;
+
+        .info {
+            text-align: center;
+            font-size: 3rem;
         }
 
+        .info p:last-child {
+            font-size: 2rem;
+            line-height: 2;
+        }
+
+        #stop-timer {
+            margin-bottom: 4em;
+        }
+
+        #add-your-exercise button{
+            margin-top: 4em;
+            margin-bottom: 4em;
+        }
+
+        .collapsible-header {
+            display: grid;
+            justify-content: space-between;
+            align-items: center;
+            grid-template-columns: 200px 200px 200px 200px;
+            // grid-template-rows: 8px auto 12px;
+
+            .delete-item {
+                width: 123.5px;
+                margin-top: .5em;
+            }
+        }
+
+        input {
+            font-size: 20px !important;
+            color: rgb(59, 55, 55);
+            margin-top: .75em !important;
+            margin-bottom: .75em !important;
+
+        }
+
+        #about {
+            font-size: 1.5rem;
+            line-height: 2;
+        }
 }
