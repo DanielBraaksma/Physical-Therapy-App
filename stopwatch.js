@@ -8,8 +8,6 @@ const pauseBtn = document.getElementById("pause-timer");
 const timerDisplay = document.querySelector('.display__time-left');
 const alarm = new Audio ('https://www.pacdv.com/sounds/domestic_sound_effects/alarm_clock_2.wav');
 
-console.log(paused)
-
 function timer(seconds) {
     // clear the timer if it is running
     clearInterval(countdown);
