@@ -70,7 +70,6 @@ function pauseTimer (currentTime){
     clearInterval(countdown)
     pauseBtn.style.backgroundColor = "green";
     pauseBtn.textContent = "Resume"
-    console.log("hi!")
     paused = true;
     }
 
